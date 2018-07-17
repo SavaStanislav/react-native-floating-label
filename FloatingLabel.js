@@ -17,21 +17,12 @@ class FloatingLabel extends Textbox {
         this.state = {
             fieldFocused: props.value ? true : false,
             value: props.value ? String(props.value) : undefined,
-            fadeAnim: props.value
-                ? new Animated.Value(1)
-                : new Animated.Value(0),
+            fadeAnim: new Animated.Value(1),
             placeholderString: undefined
         };
     }
 
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.value && !this.props.value) {
-            this.setState({
-                value: nextProps.value,
-                fadeAnim: new Animated.Value(1)
-            });
-        }
-    }
+   
 
     getTemplate() {
         let self = this;
